@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="../../css/home.css">
+{% endblock %}
+
+{% block body %}
+
+    <header class="menu_burger">
+        <div class="button">
+            <div class="ligne1 cross"></div>
+            <div class="ligne2 cross"></div>
+            <div class="ligne3 cross"></div>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <ul class="menu_list">
+            <li class="list">
+                <a href="{{ path('home') }}">Accueil</a>
+            </li>
+            <li class="list">
+                <a href="{{ path('app_blog') }}">Articles</a>           
+            </li>
+            <li class="list">
+                <a href="{{ path('blog_create') }}">Créer un article</a>
+            </li>
+
+            {% if not app.user %}
+                <li class="list">
+                    <a href="{{ path('security_registration') }}">Inscription</a>
+                </li>
+                <li class="list">
+                    <a href="{{ path('security_login') }}">Connexion</a>
+                </li>
+            {% else %}
+                <li class="list">
+                    <a href="{{ path('security_logout') }}">Déconnexion</a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+
+    <main class="main_container">
+        <h1><span>Bienvenue</span><span> dans</span><span> mon</span><span> blog</span></h1>
+        <div class="container-btns">
+            <button class="btn_home b1">Discover</button>
+            <button class="btn_home b2">Contact</button>
+        </div>
+    </main>
+
+    <img class="leaf" src="https://upload.wikimedia.org/wikipedia/commons/b/b7/%C3%89rable_canada.svg" alt="Feuille">
+
+    <aside>
+        <ul class="medias">
+            <li class="bulle"><img src="../../Assets/icons_fb.svg" alt="icone facebook" class="logo_medias"></li>
+            <li class="bulle"><img src="../../Assets/icons_inst.svg" alt="icone instagramm" class="logo_medias"></li>
+            <li class="bulle"><img src="../../Assets/icons_pint.svg" alt="icone pinterest" class="logo_medias"></li>
+            <li class="bulle"><img src="../../Assets/icons_yt.svg" alt="icone youtube" class="logo_medias"></li>
+        </ul>
+    </aside>
+
+
+
+
+
+{% endblock %}
+
+{% block JavaScript %}
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="./js/app.js"></script>
+{% endblock %}
+
+

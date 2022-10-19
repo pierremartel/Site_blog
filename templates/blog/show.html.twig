@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <article>
+            <h2>{{ article.title }}</h2>
+            <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{ article.category.title }}</div>
+            <div class="content">
+                <img src="{{ article.image }}" alt="">
+                {{ article.content | raw }}
+            </div>
+    </article>
+
+    <section id="commentaires">
+        <h1>{{article.comments | length}} Commentaires :</h1>
+        {% for comment in article.comments %}
+            <div class="comment">
+                <div class="row">
+                    <div class="col-3">
+                        {{comment.author}} (<small>{{comment.createdAt | date('d/m/Y à H:i')}}</small>)
+                    </div>
+                    <div class="col">
+                        {{comment.content | raw}}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <br>
+        <br>
+        <br>
+        {% if app.user %}
+        {{ form_start(form, {'attr': {novalidate: 'novalidate'}})}}
+
+        {{ form_row(form.author, {'label' : 'Auteur', 'attr': {'placeholder' : 'Tapez votre nom'}}) }}
+        {{ form_row(form.content, {'label' : 'Contenu', 'attr': {'placeholder' : 'Tapez votre message'}}) }}
+        <button type="submit" class="btn btn-danger">Commentez !</button>
+
+        {{ form_end(form)}}
+
+        {% else %}
+        <h2>Vous ne pouvez pas mettre de commentaires si vous n'êtes pas connecté !</h2>
+        {% endif %}
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,202 @@
+*, ::before, ::after {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-image:url("../Assets/forest.jpg");
+    /* background:#333; */
+    height: 100vh;
+    background-repeat:no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+
+}
+
+.main_container{
+    position:absolute;
+    top:30%;
+    left:5%;
+
+}
+
+h1{
+    text-transform: uppercase;
+    font-size:85px;
+    color:#f1f1f1;
+}
+
+h1 span{
+    position:relative;
+}
+
+.container-btns{
+    position: relative;
+    top:50px;
+}
+
+.btn_home{
+    border:2px solid #f1f1f1;
+    outline:none;
+    background:transparent;
+    font-size:25px;
+    padding:12px;
+    width:260px;
+    color:#f1f1f1;
+    cursor:pointer;
+}
+
+.btn_home:nth-child(1){
+    margin-right:30px;
+}
+
+.btn_home:hover{
+    transition:all 0.3s ease-in-out;
+    background:#f1f1f1;
+    color:#333;
+}
+
+.menu_burger {
+    position:absolute;
+    top:8%;
+    left:5%;
+    cursor:pointer;
+    padding:25px 50px 25px 50px;
+    z-index:100000;
+}
+
+.button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    /* pointer-events:none; */
+}
+
+.ligne1, .ligne2, .ligne3 {
+    position :absolute;
+    width:80px;
+    height:3px;
+    background:#f1f1f1;
+    border-radius:5px;
+}
+
+.ligne1{
+    top:0px;
+}
+.ligne2 {
+    top:20px;
+}
+.ligne3 {
+    top:40px;
+}
+
+.leaf{
+    position:absolute;
+    right:4%;
+    top:8%;
+    width:80px;
+    height:80px;
+    cursor:pointer;
+}
+
+.medias {
+    list-style: none;
+    position:absolute;
+    right:2%;
+    top:50%;
+    transform:translate(-50%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.bulle {
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border: 1px solid #f1f1f1;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin:10px 0 ;
+    background: #f1f1f1;
+    cursor:pointer;
+    position:relative;
+}
+
+.logo_medias {
+    width:40px;
+    height:40px;
+}
+
+/* Animations Button menu  */
+
+.menu_burger .ligne1, .ligne3{
+    transform: rotate(0deg);
+    transition: transform 0.4s ease-in-out, top 0.4s 0.4s ease-in-out;
+}
+.menu_burger .ligne2{
+    transform: rotate(0deg);
+    transition: opacity 0.4s 0.4s ease-in-out;
+}
+
+.menu_burger.active .ligne1{
+    top:25px;
+    transform: rotate(45deg);
+    transition: top 0.4s ease-in-out, transform 0.4s 0.4s ease-in-out;
+}
+.menu_burger.active .ligne2{
+    opacity:0;
+    transition: opacity 0.4s ease-in-out;
+}
+.menu_burger.active .ligne3{
+    top:25px;
+    transform: rotate(-45deg);
+    transition: top 0.4s ease-in-out, transform 0.4s 0.4s ease-in-out;
+}
+
+
+/* List Menu */
+
+.menu{
+    background-image:url("../Assets/picture__menu.jpg");
+    position: absolute;
+    left:1px;
+    width: 304vh;
+    height: 100vh;
+    z-index: 1000;
+    display: none;
+}
+.show{
+    display: block;
+}
+
+.menu_list{
+    list-style: none;
+    font-size:40px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transform: translate(-15%, 50%);
+    text-transform: uppercase;
+}
+
+.list {
+    margin-bottom: 10px;
+    padding:5px;
+}
+
+.list:hover{
+    background-color:rgb(196, 174, 174);
+    border:1px solid rgb(196, 174, 174);
+    border-radius: 5% ;
+}
+
+.list a {
+    color:black;
+    text-decoration:none;
+}
